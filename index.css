@@ -1,0 +1,25 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  height: 500px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.main {
+  background-color: blue;
+  position: absolute;
+  opacity: 0.4;
+  height: 2000px;
+  width: 100%;
+  top: 95vh;
+  z-index: 10;
+}
+/*# sourceMappingURL=index.css.map */
