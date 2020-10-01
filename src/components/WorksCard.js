@@ -1,6 +1,6 @@
 import React from "react";
 
-const WorksCard = () => {
+const WorksCard = (props) => {
   return (
     <div className="worksCard">
       <img
@@ -8,13 +8,13 @@ const WorksCard = () => {
         alt=""
       />
       <div>
-        <p>札幌オンライン合説LP</p>
-        <p>2020 . 8</p>
-        <p>
+        <p className="title">{props.title}</p>
+        <p className="date">2020 . 8</p>
+        <p className="category">
           <span>Design</span>
           <span>Coding</span>
         </p>
-        <p>
+        <p className="text">
           ここに文章が入ります
           <br />
           ここに文章が入ります
@@ -26,21 +26,6 @@ const WorksCard = () => {
           ここに文章が入ります
           <br />
           ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
         </p>
       </div>
     </div>
