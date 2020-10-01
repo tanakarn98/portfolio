@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+navbar {
+  background-color: white;
+  opacity: 0.5;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 30px;
+  z-index: 1000;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbarRight {
+    font-family: "Poppins", sans-serif;
+  }
+  .worksCount {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.container {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+
+.hero {
+  background-color: blue;
+  height: 100vh;
+  position: relative;
+  p {
+    font-family: "Poppins", sans-serif;
+    font-size: 150px;
+    line-height: 130px;
+    margin-left: -15px;
+    padding-top: 40vh;
+  }
+}
+.toNext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+}
+.works {
+  height: 100vh;
+  background-color: yellow;
+  position: relative;
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto;
+  .worksCard {
+    background-color: blue;
+    height: 80vh;
+    overflow-y: scroll;
+    text-align: center;
+    padding-top: 50px;
+    img {
+      margin: 10px 0;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    div {
+      padding: 0 20px;
+      font-size: 12px;
+    }
+  }
+  .slideWorks {
+    background-color: pink;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 40px;
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+.contact {
+  height: 100vh;
+  background-color: orange;
+}
+
+.area {
+  scroll-snap-align: start;
+  height: 100vh;
+}
