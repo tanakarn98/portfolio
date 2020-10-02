@@ -3,35 +3,44 @@ import WorksCard from "./WorksCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
-const WorksTab = () => {
-  const [tabIndex, setTabIndex] = useState(0);
-
+const WorksTab = (props) => {
   const subIndex = () => {
-    setTabIndex(tabIndex - 1);
-    if (tabIndex === 0) {
-      setTabIndex(length - 1);
+    props.setTabIndex(props.tabIndex - 1);
+    if (props.tabIndex === 0) {
+      props.setTabIndex(length - 1);
     }
   };
   const addIndex = () => {
-    setTabIndex(tabIndex + 1);
-    if (tabIndex === length - 1) {
-      setTabIndex(0);
+    props.setTabIndex(props.tabIndex + 1);
+    if (props.tabIndex === length - 1) {
+      props.setTabIndex(0);
     }
   };
 
-  let length = 3;
+  let length = props.data.length;
+  // if (props.tabIndex === 0) {
+  //   const newActiveIndex = document.querySelector(``);
+  //   newActiveIndex.classList.add("active");
+  // } else if (props.tabIndex === 1) {
+  // } else if (props.tabIndex === props.data.length - 2) {
+  // } else if (props.tabIndex === props.data.length - 1) {
+  // } else {
+  // }
   return (
     <>
-      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabPanel>
-          <WorksCard title="title1" />
-        </TabPanel>
-        <TabPanel>
-          <WorksCard title="title2" />
-        </TabPanel>
-        <TabPanel>
-          <WorksCard title="title3" />
-        </TabPanel>
+      <Tabs
+        selectedIndex={props.tabIndex}
+        onSelect={(index) => props.setTabIndex(index)}
+      >
+        {props.data.length ? (
+          props.data.map((item, i) => (
+            <TabPanel>
+              <WorksCard data={item} />
+            </TabPanel>
+          ))
+        ) : (
+          <p>Now Loading...</p>
+        )}
 
         <TabList>
           <div className="slideWorks">
@@ -39,8 +48,9 @@ const WorksTab = () => {
               onClick={() => {
                 subIndex();
               }}
+              className="arrowIcon"
             />
-            <p>
+            <p className="indicator">
               <span>○</span>
               <span>○</span>
               <span>○</span>
@@ -51,6 +61,7 @@ const WorksTab = () => {
               onClick={() => {
                 addIndex();
               }}
+              className="arrowIcon"
             />
           </div>
         </TabList>

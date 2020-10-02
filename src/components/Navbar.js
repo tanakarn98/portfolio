@@ -1,38 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { RiHomeLine } from "react-icons/ri";
 import { FiAtSign } from "react-icons/fi";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const Navbar = () => {
-  const [scroll, setScroll] = useState(0);
-  const [prevScroll, setPrevScroll] = useState(0);
-  useEffect(() => {
-    window.addEventListener("scroll", (event) => scrollTop(), true);
-  }, []);
+const Navbar = (props) => {
+  const areas = document.querySelectorAll(".area");
 
-  const scrollTop = () => {
-    let x = Math.max(
-      window.pageYOffset,
-      document.documentElement.scrollTop,
-      document.body.scrollTop,
-      window.scrollY
-    );
-    setScroll(x);
-    // console.log(x);
+  const options = {
+    root: null,
+    rootMargin: "-50% 0px",
+    threshold: 0,
   };
+  const observer = new IntersectionObserver(doWhenIntersect, options);
+  areas.forEach((area) => {
+    observer.observe(area);
+  });
 
-  let timeoutId;
-  let count = 0;
+  function doWhenIntersect(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        activateIndex(entry.target);
+      }
+    });
+  }
+  function activateIndex(element) {
+    const currentActiveIndex = document.querySelector("#navbar .active");
+
+    if (currentActiveIndex !== null) {
+      currentActiveIndex.classList.remove("active");
+    }
+    const newActiveIndex = document.querySelector(`a[href='#${element.id}']`);
+    newActiveIndex.classList.add("active");
+  }
 
   return (
     <nav>
-      <div className="navbar">
-        <RiHomeLine />
-        <p>-</p>
-        <p className="worksCount"> 1 / 15 </p>
-        <p>-</p>
-        <FiAtSign />
+      <div className="navbar" id="navbar">
+        <AnchorLink href="#hero">
+          <RiHomeLine className="navbarIcon" />
+        </AnchorLink>
+        <p className="hyphen">-</p>
+        <AnchorLink href="#works">
+          <p className="worksCount">
+            {props.tabIndex + 1} / {props.data.length}
+          </p>
+        </AnchorLink>
+        <p className="hyphen">-</p>
+        <AnchorLink href="#contact" className="navbarIcon">
+          <FiAtSign className="navbarIcon" />
+        </AnchorLink>
       </div>
-      <div className="navbarRight">Rina.O</div>
+      <div className="navbarRight">Rina.●</div>
     </nav>
   );
 };

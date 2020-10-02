@@ -1,31 +1,23 @@
 import React from "react";
+import ReactMarkdown from "react-markdown/with-html";
 
 const WorksCard = (props) => {
   return (
     <div className="worksCard">
       <img
-        src="https://www.jalan.net/news/img/2018/02/1803_kansai_eria5_009.jpg"
+        src={`${props.data.fields.img.fields.file.url}?w=800&h=500`}
         alt=""
       />
       <div>
-        <p className="title">{props.title}</p>
-        <p className="date">2020 . 8</p>
+        <p className="title">{props.data.fields.title}</p>
+        <p className="date">{props.data.fields.date}</p>
         <p className="category">
-          <span>Design</span>
-          <span>Coding</span>
+          {props.data.fields.tags.map((item, i) => (
+            <span>{item.fields.tag}</span>
+          ))}
         </p>
         <p className="text">
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
-          <br />
-          ここに文章が入ります
+          <ReactMarkdown source={props.data.fields.text} escapeHtml={false} />
         </p>
       </div>
     </div>
