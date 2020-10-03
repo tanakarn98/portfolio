@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -296,6 +297,7 @@ nav {
   .works {
     .worksCard {
       height: 70vh;
+      padding-top: 70px;
       img {
         height: 300px;
       }
@@ -310,5 +312,9 @@ nav {
       line-height: 100px;
       padding-top: 10vh;
     }
+  }
+  .toNext {
+    bottom: 40px;
+    left: 50%;
   }
 }
