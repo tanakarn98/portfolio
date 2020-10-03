@@ -6,15 +6,25 @@ import Navbar from "../components/Navbar";
 
 const Top = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
+  window.onload = function () {
+    const spinner = document.getElementById("loading");
+    spinner.classList.add("loaded");
+  };
   return (
     <>
+      <div id="loading">
+        <div class="half-circle-spinner">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-2"></div>
+        </div>
+      </div>
       <Navbar data={props.data} tabIndex={tabIndex} />
       <div className="container">
         <div className="hero area" id="hero">
           <p>
             <span>R</span>ina
             <br />
-            <span>●</span>hmura
+            <span>O</span>hmura
             <br />
             Portfolio...
           </p>
