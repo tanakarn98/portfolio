@@ -10,6 +10,15 @@ const Top = (props) => {
     const spinner = document.getElementById("loading");
     spinner.classList.add("loaded");
   };
+
+  let dataLayer = (window.dataLayer = window.dataLayer || []);
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-MS1DY33PDX");
+  gtag("config", "UA-151346291-2");
+
   return (
     <>
       <div id="loading">
