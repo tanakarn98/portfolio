@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     client
       .getEntries({
-        order: "sys.createdAt",
+        order: "-sys.createdAt",
         "sys.contentType.sys.id": "works",
       })
       .then((res) => setWorks(res.items));
