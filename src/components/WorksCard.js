@@ -78,7 +78,7 @@ const WorksCard = (props) => {
               <p className="title">{props.data.fields.title}</p>
               <p className="date">{props.data.fields.date}</p>
               <p className="category">
-                {props.data.fields.tag
+                {props.data.fields.tags
                   ? props.data.fields.tags.map((item, i) => (
                       <span>{item.fields.tag}</span>
                     ))
