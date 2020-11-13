@@ -1,57 +1,36 @@
-import React, { useState, useEffect } from "react";
-import { RiHomeLine } from "react-icons/ri";
-import { FiAtSign } from "react-icons/fi";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
-  const areas = document.querySelectorAll(".area");
-
-  const options = {
-    root: null,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  };
-  const observer = new IntersectionObserver(doWhenIntersect, options);
-  areas.forEach((area) => {
-    observer.observe(area);
-  });
-
-  function doWhenIntersect(entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        activateIndex(entry.target);
-      }
-    });
-  }
-  function activateIndex(element) {
-    const currentActiveIndex = document.querySelector("#navbar .active");
-
-    if (currentActiveIndex !== null) {
-      currentActiveIndex.classList.remove("active");
-    }
-    const newActiveIndex = document.querySelector(`a[href='#${element.id}']`);
-    newActiveIndex.classList.add("active");
-  }
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav>
-      <div className="navbar" id="navbar">
-        <AnchorLink href="#hero">
-          <RiHomeLine className="navbarIcon" />
-        </AnchorLink>
-        <p className="hyphen">-</p>
-        <AnchorLink href="#works">
-          <p className="worksCount">
-            {props.tabIndex + 1} / {props.data.length}
-          </p>
-        </AnchorLink>
-        <p className="hyphen">-</p>
-        <AnchorLink href="#contact" className="navbarIcon">
-          <FiAtSign className="navbarIcon" />
-        </AnchorLink>
-      </div>
-      <div className="navbarRight">Rina.●</div>
-    </nav>
+    <>
+      <nav>
+        <p>
+          <Link to="/">R</Link>
+        </p>
+        <div
+          className="lineContainer"
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
+        >
+          <div className={`line ${isMenuOpen ? "cross" : null}`}>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+      {isMenuOpen ? (
+        <div className="menuModal open">
+          <p>TOP / ABOUT</p>
+          <p>WORKS</p>
+          <p>CONTACT</p>
+        </div>
+      ) : (
+        <div className="menuModal close"></div>
+      )}
+    </>
   );
 };
 

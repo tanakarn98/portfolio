@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Top from "./components/Top.js";
+import Top from "./screens/Top";
+import Works from "./screens/Works";
+import Navbar from "./components/Navbar";
 import * as contentful from "contentful";
 import ApiKey from "./constants/contentful";
 
@@ -18,8 +20,10 @@ const App = () => {
   }, []);
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
-        <Route exact path="/" render={() => <Top data={works} />} />
+        <Route exact path="/" render={() => <Top />} />
+        <Route exact path="/works" render={() => <Works data={works} />} />
       </Switch>
     </BrowserRouter>
   );
