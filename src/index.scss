@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Alata&family=Noto+Sans+JP:wght@300;500&display=swap");
 $main: rgb(226, 0, 0);
+$sub: rgb(46, 46, 46);
 
 body {
   margin: 0;
@@ -31,7 +32,7 @@ h4 {
   width: 100vw;
   height: 100vh;
   transition: all 1s;
-  background-color: black;
+  background-color: $sub;
 
   /* 以下のコードを追加 */
   position: fixed;
@@ -86,6 +87,10 @@ h4 {
   opacity: 0;
   visibility: hidden;
   display: none;
+}
+
+.flexContainer {
+  display: flex;
 }
 
 nav {
@@ -166,13 +171,64 @@ nav {
   top: 0;
   left: 70px;
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .linkContainer {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    p {
+      display: inline-block;
+      margin: 30px 0;
+      font-size: 24px;
+      a {
+        text-decoration: none;
+        color: $main;
+        position: relative;
+        &:after {
+          content: "";
+          height: 2px;
+          width: 2px;
+          background-color: white;
+          position: absolute;
+          right: 3px;
+          bottom: 0;
+        }
+        &:before {
+          content: "";
+          height: 2px;
+          width: 100%;
+          background-color: $main;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+        &:hover {
+          &:before {
+            animation: border 0.4s ease-out;
+          }
+        }
+      }
+    }
+  }
 }
+
+@keyframes border {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 .open {
-  animation: open-a 0.2s ease;
+  animation: open-a 0.2s ease-in;
   animation-fill-mode: forwards;
 }
 .close {
-  animation: close 0.2s ease;
+  animation: close 0.2s ease-in;
   animation-fill-mode: forwards;
   display: block;
 }
@@ -192,25 +248,60 @@ nav {
     width: 0%;
   }
 }
-
 .root {
-  padding: 30px 0;
-  padding-left: 70px;
-  width: 80%;
-  column-count: 3;
+  width: calc(100% - 70px);
+  // background-color: pink;
+  margin-left: auto;
+}
+.top {
+  box-sizing: border-box;
+  padding: 0 20px;
+  h2 {
+    margin: 40px 0;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 13px;
+    line-height: 30px;
+    span {
+      background-color: $sub;
+      color: white;
+      padding: 2px 5px;
+      margin-right: 10px;
+    }
+    .ai {
+      padding: 0;
+      background-color: #eda139;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+    }
+  }
+}
+.mainTitle {
+  color: $main;
+  font-size: 70px;
+  margin-left: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.works {
+  padding: 10px 10px;
+  column-count: 4;
   column-gap: 0;
-  background-color: pink;
-  margin: 0 auto;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
+  margin: 0 auto;
 }
 
 .worksCard {
   background-color: white;
   cursor: pointer;
   height: auto;
-  width: 90%;
+  width: 92%;
   margin: 0 auto;
   margin-bottom: 5%;
   -webkit-column-break-inside: avoid;
@@ -260,7 +351,7 @@ nav {
       }
       .category {
         span {
-          background-color: black;
+          background-color: $sub;
           color: white;
           padding: 0 10px;
           margin: 10px 10px;
@@ -297,21 +388,13 @@ nav {
   }
 }
 
-@media screen and (max-width: 767px) {
-  .hero {
-    .topCard {
-      width: 200px;
-      height: 100px;
-
-      &:before {
-        top: 10px;
-      }
-      p {
-        font-size: 40px;
-      }
-    }
+@media screen and (max-width: 1000px) {
+  .works {
+    column-count: 3;
   }
-  .root {
+}
+@media screen and (max-width: 767px) {
+  .works {
     column-count: 2;
   }
 }

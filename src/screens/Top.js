@@ -1,30 +1,6 @@
 import React from "react";
-import Footer from "../components/Footer";
 
 const Top = (props) => {
-  // console.log(localStorage.getItem("position"));
-  // if (!!localStorage.getItem("position")) {
-  //   window.onload = function () {
-  //     const spinner = document.getElementById("loading");
-  //     spinner.classList.add("loaded");
-  //     localStorage.setItem("position", "on");
-  //     console.log(localStorage.getItem("position"));
-  //   };
-  // }
-
-  let strage = localStorage.getItem("position");
-  console.log(strage);
-  if (strage === "on") {
-    const spinner = document.getElementById("loading");
-    spinner.parentNode.removeChild(spinner);
-    localStorage.setItem("position", "off");
-  } else if (strage !== "off") {
-    localStorage.setItem("position", "on");
-    const spinner = document.getElementById("loading");
-    spinner.classList.add("loaded");
-  }
-  console.log("strage2:" + strage);
-
   let dataLayer = (window.dataLayer = window.dataLayer || []);
   function gtag() {
     dataLayer.push(arguments);
@@ -35,14 +11,47 @@ const Top = (props) => {
 
   return (
     <>
-      <div id="loading">
-        <div class="half-circle-spinner">
-          <div class="circle circle-1"></div>
-          <div class="circle circle-2"></div>
+      <div className="root">
+        <div className="mainTitle">Portfolio</div>
+        <div className="top">
+          <h2>プロフィール</h2>
+          <p>おおむらりな</p>
+          <p>
+            <span>所属</span>医学部保健学科 放射線技術科学専攻
+          </p>
+          <p>
+            <span>団体</span>
+            HUIT(北大IT研究会)/LOCAL学生部/千歳科学技術大学LTサークル(cistLT)/Hello
+          </p>
+          <p>
+            <span>好きなこと</span>
+            海を見ること、美味しいものを食べること
+          </p>
+          <h2>スキル</h2>
+          <p>
+            <span className="ai"></span>HTML:★★★★☆
+          </p>
+          <p>
+            <span className="ai"></span>CSS(SCSS):★★★★☆
+          </p>
+          <p>
+            <span className="ai"></span>Java Script(React):★★★☆☆
+          </p>
+          <p>
+            <span className="ai"></span>Adobe XD:★★★★☆
+          </p>
+          <p>
+            <span className="ai"></span>Adobe Illustrator:★★★★☆
+          </p>
+          <p>
+            <span className="ai"></span>Adobe Photoshop:★★☆☆☆
+          </p>
+          <h2>できること</h2>
+          <p>マークアップ / フロントエンド少し / デザイン</p>
+          <h2>やりたいこと</h2>
+          <p>ユーザーがワクワクするサービスを自分も楽しみながら作ること</p>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };

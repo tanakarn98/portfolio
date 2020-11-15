@@ -23,9 +23,38 @@ const Navbar = (props) => {
       </nav>
       {isMenuOpen ? (
         <div className="menuModal open">
-          <p>TOP / ABOUT</p>
-          <p>WORKS</p>
-          <p>CONTACT</p>
+          <div className="linkContainer">
+            <p>
+              <Link
+                to="/"
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                TOP / ABOUT
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="/works"
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                WORKS
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="/"
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                CONTACT
+              </Link>
+            </p>
+          </div>
         </div>
       ) : (
         <div className="menuModal close"></div>

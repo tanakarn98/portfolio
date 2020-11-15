@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Top from "./screens/Top";
 import Works from "./screens/Works";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Loading from "./components/Loading";
 import * as contentful from "contentful";
 import ApiKey from "./constants/contentful";
 
@@ -20,11 +22,15 @@ const App = () => {
   }, []);
   return (
     <BrowserRouter>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" render={() => <Top />} />
-        <Route exact path="/works" render={() => <Works data={works} />} />
-      </Switch>
+      <Loading />
+      <div className="flexContainer">
+        <Navbar />
+        <Switch>
+          <Route exact path="/" render={() => <Top />} />
+          <Route exact path="/works" render={() => <Works data={works} />} />
+        </Switch>
+      </div>
+      <Footer />
     </BrowserRouter>
   );
 };

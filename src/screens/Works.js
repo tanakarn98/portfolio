@@ -5,9 +5,12 @@ const Top = (props) => {
   return (
     <>
       <div className="root">
-        {props.data.map((item, i) => {
-          return <WorksCard data={item} key={i} />;
-        })}
+        <div className="mainTitle">WORKS</div>
+        <div className="works">
+          {props.data.map((item, i) => {
+            return <WorksCard data={item} key={i} />;
+          })}
+        </div>
       </div>
     </>
   );
