@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <>
       <nav>
         <p>
-          <Link to="/">R</Link>
+          <HashLink to="/#top">R</HashLink>
         </p>
         <div
           className="lineContainer"
@@ -25,34 +25,34 @@ const Navbar = (props) => {
         <div className="menuModal open">
           <div className="linkContainer">
             <p>
-              <Link
-                to="/"
+              <HashLink
+                to="/#top"
                 onClick={() => {
                   setIsMenuOpen(!isMenuOpen);
                 }}
               >
                 TOP / ABOUT
-              </Link>
+              </HashLink>
             </p>
             <p>
-              <Link
-                to="/works"
+              <HashLink
+                to="/works#top"
                 onClick={() => {
                   setIsMenuOpen(!isMenuOpen);
                 }}
               >
                 WORKS
-              </Link>
+              </HashLink>
             </p>
             <p>
-              <Link
-                to="/"
+              <HashLink
+                to="#contact"
                 onClick={() => {
                   setIsMenuOpen(!isMenuOpen);
                 }}
               >
                 CONTACT
-              </Link>
+              </HashLink>
             </p>
           </div>
         </div>

@@ -23,13 +23,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Loading />
-      <div className="flexContainer">
-        <Navbar />
-        <Switch>
-          <Route exact path="/" render={() => <Top />} />
-          <Route exact path="/works" render={() => <Works data={works} />} />
-        </Switch>
-      </div>
+
+      <Navbar />
+      <Switch>
+        <Route exact path="/" render={() => <Top />} />
+        <Route exact path="/works" render={() => <Works data={works} />} />
+      </Switch>
+
       <Footer />
     </BrowserRouter>
   );

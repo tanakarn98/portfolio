@@ -11,13 +11,13 @@ const Top = (props) => {
 
   return (
     <>
-      <div className="root">
+      <div className="root" id="top">
         <div className="mainTitle">Portfolio</div>
-        <div className="top">
+        <div className="profile">
           <h2>プロフィール</h2>
           <p>おおむらりな</p>
           <p>
-            <span>所属</span>医学部保健学科 放射線技術科学専攻
+            <span>所属</span>医学部保健学科 放射線技術科学専攻 4年
           </p>
           <p>
             <span>団体</span>
@@ -29,22 +29,22 @@ const Top = (props) => {
           </p>
           <h2>スキル</h2>
           <p>
-            <span className="ai"></span>HTML:★★★★☆
+            <span className="ai"></span>HTML: ★★★★☆
           </p>
           <p>
-            <span className="ai"></span>CSS(SCSS):★★★★☆
+            <span className="ai"></span>CSS (SCSS): ★★★★☆
           </p>
           <p>
-            <span className="ai"></span>Java Script(React):★★★☆☆
+            <span className="ai"></span>JavaScript (React): ★★★☆☆
           </p>
           <p>
-            <span className="ai"></span>Adobe XD:★★★★☆
+            <span className="ai"></span>Adobe XD: ★★★★☆
           </p>
           <p>
-            <span className="ai"></span>Adobe Illustrator:★★★★☆
+            <span className="ai"></span>Adobe Illustrator: ★★★★☆
           </p>
           <p>
-            <span className="ai"></span>Adobe Photoshop:★★☆☆☆
+            <span className="ai"></span>Adobe Photoshop: ★★☆☆☆
           </p>
           <h2>できること</h2>
           <p>マークアップ / フロントエンド少し / デザイン</p>
